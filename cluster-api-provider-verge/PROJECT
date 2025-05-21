@@ -10,7 +10,7 @@ resources:
   controller: true
   domain: cluster.x-k8s.io
   group: infrastructure
-  kind: VegreCluster
+  kind: VergeCluster
   path: github.com/mashalabbas/cluster-api-provider-verge/api/v1alpha1
   version: v1alpha1
 - api:

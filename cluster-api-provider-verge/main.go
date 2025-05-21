@@ -89,11 +89,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controllers.VegreClusterReconciler{
+	if err = (&controllers.VergeClusterReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "unable to create controller", "controller", "VegreCluster")
+		setupLog.Error(err, "unable to create controller", "controller", "VergeCluster")
 		os.Exit(1)
 	}
 	if err = (&controllers.VergeMachineReconciler{

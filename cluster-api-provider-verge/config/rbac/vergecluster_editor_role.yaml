@@ -1,13 +1,13 @@
-# permissions for end users to edit vegreclusters.
+# permissions for end users to edit vergeclusters.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: vegrecluster-editor-role
+  name: vergecluster-editor-role
 rules:
 - apiGroups:
   - infrastructure.cluster.x-k8s.io
   resources:
-  - vegreclusters
+  - vergeclusters
   verbs:
   - create
   - delete
@@ -19,6 +19,6 @@ rules:
 - apiGroups:
   - infrastructure.cluster.x-k8s.io
   resources:
-  - vegreclusters/status
+  - vergeclusters/status
   verbs:
   - get

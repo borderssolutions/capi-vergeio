@@ -23,17 +23,17 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// VegreClusterSpec defines the desired state of VegreCluster
-type VegreClusterSpec struct {
+// VergeClusterSpec defines the desired state of VergeCluster
+type VergeClusterSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of VegreCluster. Edit vegrecluster_types.go to remove/update
+	// Foo is an example field of VergeCluster. Edit vergecluster_types.go to remove/update
 	Foo string `json:"foo,omitempty"`
 }
 
-// VegreClusterStatus defines the observed state of VegreCluster
-type VegreClusterStatus struct {
+// VergeClusterStatus defines the observed state of VergeCluster
+type VergeClusterStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 }
@@ -41,24 +41,24 @@ type VegreClusterStatus struct {
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
 
-// VegreCluster is the Schema for the vegreclusters API
-type VegreCluster struct {
+// VergeCluster is the Schema for the vergeclusters API
+type VergeCluster struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   VegreClusterSpec   `json:"spec,omitempty"`
-	Status VegreClusterStatus `json:"status,omitempty"`
+	Spec   VergeClusterSpec   `json:"spec,omitempty"`
+	Status VergeClusterStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
 
-// VegreClusterList contains a list of VegreCluster
-type VegreClusterList struct {
+// VergeClusterList contains a list of VergeCluster
+type VergeClusterList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []VegreCluster `json:"items"`
+	Items           []VergeCluster `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&VegreCluster{}, &VegreClusterList{})
+	SchemeBuilder.Register(&VergeCluster{}, &VergeClusterList{})
 }
