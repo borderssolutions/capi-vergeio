@@ -85,3 +85,5 @@ type VergeClusterList struct {
 func init() {
 	SchemeBuilder.Register(&VergeCluster{}, &VergeClusterList{})
 }
+
+

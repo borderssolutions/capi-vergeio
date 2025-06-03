@@ -30,6 +30,15 @@ type VergeMachineSpec struct {
 
 	// Foo is an example field of VergeMachine. Edit vergemachine_types.go to remove/update
 	Foo string `json:"foo,omitempty"`
+
+	// ProviderID will be the mahine name in ProviderID format (docker:////<containername>)
+	// +optional
+	ProviderID *string `json:"providerID,omitempty"`
+
+	// CustomImage allows customizing the container image that is used for
+	// running the machine
+	// +optional
+	CustomImage string `json:"customImage,omitempty"`
 }
 
 // VergeMachineStatus defines the observed state of VergeMachine
