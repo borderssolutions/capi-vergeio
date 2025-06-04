@@ -30,7 +30,7 @@ import (
 	vergeapis "github.com/mashalabbas/cluster-api-provider-verge/pkg/verge"
 
 	//need to add this to the repo: TODO
-	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha2"
+	clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
 )
 
 // VergeMachineReconciler reconciles a VergeMachine object

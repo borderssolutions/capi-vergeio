@@ -6,7 +6,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
 	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha2"
-	"sigs.k8s.io/cluster-api/exp/runtime/client"
+	"sigs.k8s.io/controller-runtime/pkg/client"
 )
 
 // getOwnerMachine returns the owner machine object: TODO
