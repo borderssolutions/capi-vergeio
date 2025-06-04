@@ -18,18 +18,17 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-
 	//Tutorial
 	//Satisfies contract as speicified in tutorial
-	clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
+	// clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
 )
 
-//Tutorial
+// Tutorial
 const (
- 	// ClusterFinalizer allows cleaning up resources associated with
- 	// VergeCluster before removing it from the apiserver.
- 	ClusterFinalizer = "vergecluster.infrastructure.cluster.x-k8s.io"
- )
+	// ClusterFinalizer allows cleaning up resources associated with
+	// VergeCluster before removing it from the apiserver.
+	ClusterFinalizer = "vergecluster.infrastructure.cluster.x-k8s.io"
+)
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
@@ -44,9 +43,9 @@ type VergeClusterSpec struct {
 
 	//Tutorial
 	// ControlPlaneEndpoint represents the endpoint used to communicate with the control plane.
- 	// +optional
-	ControlPlaneEndpoint clusterv1.APIEndpoint `json:"controlPlaneEndpoint"`
-
+	// +optional
+	// ControlPlaneEndpoint clusterv1.APIEndpoint `json:"controlPlaneEndpoint"`
+	Ready bool `json:"ready,omitempty"`
 }
 
 // VergeClusterStatus defines the observed state of VergeCluster
@@ -85,5 +84,3 @@ type VergeClusterList struct {
 func init() {
 	SchemeBuilder.Register(&VergeCluster{}, &VergeClusterList{})
 }
-
-

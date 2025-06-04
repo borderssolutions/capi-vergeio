@@ -31,7 +31,7 @@ type VergeMachineSpec struct {
 	// Foo is an example field of VergeMachine. Edit vergemachine_types.go to remove/update
 	Foo string `json:"foo,omitempty"`
 
-	// ProviderID will be the mahine name in ProviderID format (docker:////<containername>)
+	// ProviderID will be the mahine name in ProviderID
 	// +optional
 	ProviderID *string `json:"providerID,omitempty"`
 
@@ -45,6 +45,8 @@ type VergeMachineSpec struct {
 type VergeMachineStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	// Ready denotes that the machine  is ready
+	Ready bool `json:"ready"`
 }
 
 //+kubebuilder:object:root=true

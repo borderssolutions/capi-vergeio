@@ -24,7 +24,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	infrastructurev1alpha1 "github.com/mashalabbas/cluster-api-provider-verge/api/v1alpha1"
+	infrav1 "github.com/mashalabbas/cluster-api-provider-verge/api/v1alpha1"
 )
 
 // VergeClusterReconciler reconciles a VergeCluster object
@@ -47,9 +47,23 @@ type VergeClusterReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.12.2/pkg/reconcile
 func (r *VergeClusterReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	_ = log.FromContext(ctx)
 
-	// TODO(user): your logic here
+	logger := log.FromContext(ctx)
+
+	vergeCluster := &infrav1.VergeCluster{}
+	if err := r.Get(ctx, req.NamespacedName, vergeCluster); err != nil {
+		return ctrl.Result{}, client.IgnoreNotFound(err)
+	}
+
+	// No-op logic: just mark it as ready
+	//TODO: Add reconciliation logic here
+	if !vergeCluster.Status.Ready {
+		vergeCluster.Status.Ready = true
+		if err := r.Status().Update(ctx, vergeCluster); err != nil {
+			return ctrl.Result{}, err
+		}
+		logger.Info("Marked VergeCluster as Ready")
+	}
 
 	return ctrl.Result{}, nil
 }
@@ -57,6 +71,6 @@ func (r *VergeClusterReconciler) Reconcile(ctx context.Context, req ctrl.Request
 // SetupWithManager sets up the controller with the Manager.
 func (r *VergeClusterReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&infrastructurev1alpha1.VergeCluster{}).
+		For(&infrav1.VergeCluster{}).
 		Complete(r)
 }
