@@ -28,9 +28,6 @@ type VergeMachineSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of VergeMachine. Edit vergemachine_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
-
 	// ProviderID will be the mahine name in ProviderID
 	// +optional
 	ProviderID *string `json:"providerID,omitempty"`

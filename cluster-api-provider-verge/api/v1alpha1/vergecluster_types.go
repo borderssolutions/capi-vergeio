@@ -18,34 +18,21 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	//Tutorial
-	//Satisfies contract as speicified in tutorial
-	// clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
 )
 
-// Tutorial
+// EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
+// NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 const (
 	// ClusterFinalizer allows cleaning up resources associated with
 	// VergeCluster before removing it from the apiserver.
 	ClusterFinalizer = "vergecluster.infrastructure.cluster.x-k8s.io"
 )
 
-// EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
-// NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
-
 // VergeClusterSpec defines the desired state of VergeCluster
 type VergeClusterSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// // Foo is an example field of VergeCluster. Edit vergecluster_types.go to remove/update
-	// Foo string `json:"foo,omitempty"`
-
-	//Tutorial
-	// ControlPlaneEndpoint represents the endpoint used to communicate with the control plane.
-	// +optional
-	// ControlPlaneEndpoint clusterv1.APIEndpoint `json:"controlPlaneEndpoint"`
-	Ready bool `json:"ready,omitempty"`
 }
 
 // VergeClusterStatus defines the observed state of VergeCluster
@@ -53,7 +40,6 @@ type VergeClusterStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	//Tutorial
 	// Ready indicates that the cluster is ready.
 	// +optional
 	// +kubebuilder:default=false

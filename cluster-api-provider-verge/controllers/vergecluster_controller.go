@@ -47,7 +47,6 @@ type VergeClusterReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.12.2/pkg/reconcile
 func (r *VergeClusterReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-
 	logger := log.FromContext(ctx)
 
 	vergeCluster := &infrav1.VergeCluster{}
