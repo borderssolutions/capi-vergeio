@@ -55,7 +55,7 @@ func (r *VergeClusterReconciler) Reconcile(ctx context.Context, req ctrl.Request
 	}
 
 	// No-op logic: just mark it as ready
-	//TODO: Add reconciliation logic here
+	//TODO: Add reconciliation logic here: TODO
 	if !vergeCluster.Status.Ready {
 		vergeCluster.Status.Ready = true
 		if err := r.Status().Update(ctx, vergeCluster); err != nil {

@@ -55,18 +55,7 @@ type VergeMachineReconciler struct {
 // func (r *VergeMachineReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 // 	_ = log.FromContext(ctx)
 
-// 	// TODO(user): your logic here
-
-// 	return ctrl.Result{}, nil
-// }
-
-// // SetupWithManager sets up the controller with the Manager.
-// func (r *VergeMachineReconciler) SetupWithManager(mgr ctrl.Manager) error {
-// 	return ctrl.NewControllerManagedBy(mgr).
-// 		For(&infrastructurev1alpha1.VergeMachine{}).
-// 		Complete(r)
-// }
-
+// // TODO(user): your logic here
 func (r *VergeMachineReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	// logger := log.FromContext(ctx)
 
