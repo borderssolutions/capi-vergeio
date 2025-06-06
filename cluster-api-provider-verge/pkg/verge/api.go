@@ -16,6 +16,8 @@ func GetOwnerMachine(ctx context.Context, client client.Client, owner metav1.Obj
 
 // createMachineInVergeInfra creates a machine in the provider and returns the providerID: TODO
 func CreateMachineInVergeInfra(machine *clusterv1.Machine, userData []byte) (string, error) {
+
+	// Should also execute bootstrapping: TODO
 	return "", nil
 }
 
