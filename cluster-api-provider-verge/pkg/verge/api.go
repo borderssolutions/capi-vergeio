@@ -23,3 +23,8 @@ func CreateMachineInVergeInfra(machine *clusterv1.Machine, userData []byte) (str
 func DeleteMachineInVergeInfra(machine *clusterv1.Machine) error {
 	return nil
 }
+
+// IsMachineAlive returns true if the machine is alive: TODO
+func IsMachineAlive(machine *clusterv1.Machine) bool {
+	return true
+}

@@ -70,9 +70,18 @@ type VergeMachineReconciler struct {
 func (r *VergeMachineReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	// logger := log.FromContext(ctx)
 
+	// Retrieves the VergeMachine custom resource that triggered reconciliation
 	vergeMachine := &infrav1.VergeMachine{}
 	if err := r.Get(ctx, req.NamespacedName, vergeMachine); err != nil {
 		return ctrl.Result{}, client.IgnoreNotFound(err)
+	}
+
+	//You check whether the machine still exists/runs in your custom infrastructure
+	isAlive := vergeapis.IsMachineAlive(vergeMachine)
+	if !isAlive {
+		vergeMachine.Status.Ready = false
+		// Update status so Cluster API knows it's not healthy
+		_ = r.Status().Update(ctx, vergeMachine)
 	}
 
 	// If being deleted
@@ -96,6 +105,7 @@ func (r *VergeMachineReconciler) reconcileNormal(ctx context.Context, vergeMachi
 		return ctrl.Result{}, err
 	}
 
+	// if the machine is already provisioned, return
 	if !vergeMachine.ObjectMeta.DeletionTimestamp.IsZero() {
 		return ctrl.Result{}, nil
 	}
